@@ -19,19 +19,19 @@ function App() {
   }
   console.log(allTask);
   return (
-    <>
+    <div className="px-12">
     <div className="flex flex-col items-center justify-center py-8 gap-4">
       <h1 className="text-xl font-semibold">TO DO BOARD</h1>
       <Input onAdd={addTask}/>
     </div>
-      <div className="grid grid-cols-3">
+      <div className="flex flex-col gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-8 md:px-10 lg:px-12">
         {
           allTask.map((task)=>
             <DisplayBoard key={task.id} task={task} onDelete={() => deleteTask(task.id)}/>
           )
         }
       </div>
-    </>
+    </div>
   )
 }
 
