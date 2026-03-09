@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 
-const Input = () => {
+const Input = ({onAdd}) => {
     const [input, setInput] = useState("");
-
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        onAdd(input);
+        setInput("");
+    }
   return (
     <div>
-        <form>
+        <form onSubmit={handleSubmit}>
             <input
                 type='text'
                 placeholder='Task' 
@@ -13,7 +17,7 @@ const Input = () => {
                 onChange={e => setInput(e.target.value)}
             />
 
-            <button>Add</button>
+            <button type='submit'>Add</button>
         </form>
     </div>
   )
