@@ -1,9 +1,9 @@
 import React from 'react'
 
-const DisplayBoard = () => {
+const DisplayBoard = ({task}) => {
   return (
     <div>
-        <p></p>
+        <p>{task.text}</p>
     </div>
   )
 }
