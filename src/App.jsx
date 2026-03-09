@@ -14,6 +14,9 @@ function App() {
     setAllTasks(prev => [...prev, newTask]);
   }
 
+  const deleteTask = (id) =>{
+    setAllTasks(prev => prev.filter(task => task.id !== id));
+  }
   console.log(allTask);
   return (
     <>
@@ -21,7 +24,7 @@ function App() {
       <div>
         {
           allTask.map((task)=>
-            <DisplayBoard key={task.id} task={task}/>
+            <DisplayBoard key={task.id} task={task} onDelete={() => deleteTask(task.id)}/>
           )
         }
       </div>
